@@ -12,4 +12,5 @@ def cache_buster():
 @bp.route("/")
 def index():
     r = render_template("no.html")
+    r = render_template("yes.html")
     return render_template("index.html", **{"result": r})
