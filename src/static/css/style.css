@@ -1,0 +1,65 @@
+*, *::before, *::after { box-sizing: border-box; }
+html {
+  min-width: 320px;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  margin: 0;
+  padding: 0;
+
+  font-family: "Montserrat", serif;
+  font-size: 18px;
+  line-height: 1.7;
+  font-weight: 400;
+}
+
+h1, h2, h3 {
+  font-family: "Zilla Slab", "Montserrat", serif;
+  font-weight: 600;
+  margin-bottom: -0.75em;
+}
+h3 { margin-bottom: auto; }
+
+header {
+  padding: 0.5em;
+  flex: none;
+  display: flex;
+  justify-content: center;
+}
+
+header h1 { text-align: center; }
+
+header img {
+  margin-right: 1em;
+  margin-left: 1em;
+}
+
+main {
+  width: 87%;
+  margin-right: auto;
+  margin-left: auto;
+  flex: 1 0 auto;
+}
+
+footer {
+  flex: none;
+  padding: 0.9em;
+  font-size: 0.7em;
+  /* text-align: center; */
+}
+
+
+
+.geo-msg {
+  font-size: 0.9em;
+  display: none;
+}
+
+.no-geo .geo-msg {
+  display: block;
+}
