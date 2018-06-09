@@ -27,5 +27,6 @@
   </footer>
 
   {{ JSGlue.include() }}
+  <script src="{{ url_for('static', filename='js/script.js', time=cache_buster) }}"></script>
 </body>
 </html>
