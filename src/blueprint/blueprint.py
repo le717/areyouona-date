@@ -11,10 +11,18 @@ def cache_buster():
 
 @bp.route("/")
 def index():
-    r = render_template("yes.html")
-    return render_template("index.html", **{"result": r})
+    return render_template("permission.html")
 
 @bp.route("/no")
 def no():
     r = render_template("no.html")
+    return render_template("index.html", **{"result": r})
+
+@bp.route("/maybe")
+def maybe():
+    return "<h1>Maybe?</h1>"
+
+@bp.route("/yes")
+def yes():
+    r = render_template("yes.html")
     return render_template("index.html", **{"result": r})
