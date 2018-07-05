@@ -1,0 +1,14 @@
+/* TEAM */
+    Everything: Caleb Ely
+    Site: https://CodeTri.net
+    Twitter: @cely717
+    Location: Georgia, United States
+
+/* THANKS */
+    Candle image: http://www.clker.com/clipart-10651.html
+
+/* SITE */
+    Last update: 2018/MM/DD
+    Standards: HTML5, CSS3, JavaScript
+    Components: Yelp API, Google Fonts, Python Flask microframework
+    Software: Visual Studio Code

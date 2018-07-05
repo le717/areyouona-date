@@ -4,10 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico', time=cache_buster) }}">
+  <link type="text/plain" rel="author" href="{{ url_for('static', filename='humans.txt') }}">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zilla+Slab:600|Montserrat:400">
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', time=cache_buster) }}">
   <title>Are You On A Date?</title>
+  <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico', time=cache_buster) }}">
+  <!-- TODO Social meta meta tags -->
 </head>
 
 <body class="no-geo">
