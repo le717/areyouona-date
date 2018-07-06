@@ -4,11 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <link type="text/plain" rel="author" href="{{ url_for('static', filename='humans.txt') }}">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zilla+Slab:600|Montserrat:400">
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', time=cache_buster) }}">
   <title>Are You On A Date?</title>
   <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico', time=cache_buster) }}">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zilla+Slab:600|Montserrat:400">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css', time=cache_buster) }}">
+  <link type="text/plain" rel="author" href="{{ url_for('static', filename='humans.txt') }}">
   <!-- TODO Social meta meta tags -->
 </head>
 
@@ -25,7 +25,7 @@
   </main>
 
   <footer>
-    <p>Privacy disclaimer: Your privacy is valued. The results of this assessment are not shared with the creator or third-parties. If you permit, your current location is used solely to improve the assesment's results. The state of your dating life, regardless of sadness level, is strictly between you and anyone else looking at your screen right now.</p>
+    <a href="{{ url_for('date.privacy') }}">Privacy Policy</a>
   </footer>
 
   {{ JSGlue.include() }}

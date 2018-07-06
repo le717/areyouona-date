@@ -13,10 +13,17 @@ def cache_buster():
 def index():
     return render_template("permission.html")
 
+
+@bp.route("/privacy")
+def privacy():
+    return render_template("privacy.html")
+
+
 @bp.route("/no")
 def no():
     r = render_template("no.html")
     return render_template("index.html", **{"result": r})
+
 
 @bp.route("/maybe")
 def maybe():
