@@ -27,7 +27,9 @@ def no():
 
 @bp.route("/maybe")
 def maybe():
-    return "<h1>Maybe?</h1>"
+    r = render_template("maybe.html")
+    return render_template("index.html", **{"result": r})
+
 
 @bp.route("/yes")
 def yes():
