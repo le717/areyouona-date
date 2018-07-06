@@ -1,6 +1,7 @@
 import time
 from flask import Blueprint, render_template
 
+
 bp = Blueprint("date", __name__, url_prefix="")
 
 
@@ -10,28 +11,25 @@ def cache_buster():
 
 
 @bp.route("/")
-def index():
+def index() -> str:
     return render_template("permission.html")
 
 
 @bp.route("/privacy")
-def privacy():
-    return render_template("privacy.html")
+def privacy() -> str:
+    return render_template("privacy.html", page_title="Privacy")
 
 
 @bp.route("/no")
-def no():
-    r = render_template("no.html")
-    return render_template("index.html", **{"result": r})
+def no() -> str:
+    return render_template("no.html", page_title="No.")
 
 
 @bp.route("/maybe")
-def maybe():
-    r = render_template("maybe.html")
-    return render_template("index.html", **{"result": r})
+def maybe() -> str:
+    return render_template("maybe.html", page_title="Maybe...?")
 
 
 @bp.route("/yes")
-def yes():
-    r = render_template("yes.html")
-    return render_template("index.html", **{"result": r})
+def yes() -> str:
+    return render_template("yes.html", page_title="Yes!")
