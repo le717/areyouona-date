@@ -3,6 +3,9 @@
 > Determine if you are currently on a date!
 
 ## Installation
+
+1. Rename `oss.env` to `.env`
+1. Add missing environment variables
 1. `pip install pipenv`
 1. `pipenv install`
 1. `pipenv shell`
