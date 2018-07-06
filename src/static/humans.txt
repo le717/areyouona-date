@@ -1,5 +1,5 @@
 /* TEAM */
-    Everything: Caleb Ely
+    Developer: Caleb Ely
     Site: https://CodeTri.net
     Twitter: @cely717
     Location: Georgia, United States
