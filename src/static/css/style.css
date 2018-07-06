@@ -15,8 +15,8 @@ body {
   background-color: #b62828;
 
   font-family: "Montserrat", serif;
-  font-size: 17px;
-  line-height: 1.6;
+  font-size: 18px;
+  line-height: 2.0;
   font-weight: 400;
   color: #fff;
 }
@@ -27,8 +27,9 @@ a {
 
   text-decoration: none;
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
-  font-family: "Zilla Slab", "Montserrat", serif;
+  font-family: "Lobster Two", "Montserrat", serif;
   color: #fff;
+  letter-spacing: 1px;
 }
 a:focus,
 a:hover {
@@ -36,12 +37,11 @@ a:hover {
 }
 
 h1, h2, h3 {
-  font-family: "Zilla Slab", "Montserrat", serif;
-  font-weight: 600;
+  font-family: "Lobster Two", "Montserrat", serif;
+  font-weight: 700;
   margin-bottom: -0.75em;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
 }
-h3 { margin-bottom: auto; }
 
 header {
   padding: 0.5em;
@@ -59,7 +59,7 @@ header img {
 }
 
 main {
-  width: 87%;
+  width: 80%;
   margin-right: auto;
   margin-left: auto;
   flex: 1 0 auto;
