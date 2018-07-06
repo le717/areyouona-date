@@ -8,6 +8,7 @@ flask = "*"
 flask-jsglue = "*"
 requests = "*"
 flask-wtf = "*"
+python-dotenv = "*"
 
 [dev-packages]
 
