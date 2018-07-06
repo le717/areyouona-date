@@ -67,11 +67,11 @@ main {
 
 footer {
   width: 87%;
+  margin-top: 2em;
   margin-right: auto;
   margin-left: auto;
   flex: none;
   padding: 0.9em;
-  font-size: 0.7em;
   text-align: center;
 }
 
@@ -101,11 +101,11 @@ form label:first-of-type {
 }
 
 form button {
-  width: 22em;
+  width: 21em;
   border: 2px solid #fff;
   border-radius: 3px;
   outline: none;
-  font-size: 0.8em;
+  font-size: 0.85em;
 
   padding: 1em;
 

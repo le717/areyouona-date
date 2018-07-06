@@ -2,7 +2,7 @@
 {% block content %}
 
 <h2>Before we begin&hellip;</h2>
-<p>Before we can begin our assessment if you are on a date or not, we would like to have the following small bit of information about you. This will help us more accurately assess your date status. You should considering reading our privacy statement below before continuing on (in brief: we don't share your info).</p>
+<p>Before we can begin our assessment if you are on a date or not, we would like to have the following small bit of information about you. This will help us more accurately assess your date status. You might consider reading our <a href="{{ url_for('date.privacy') }}">privacy policy</a> before continuing on (tl;dr: we don't want your info).</p>
 
 {% include 'forms/form-permission.html' %}
 {% endblock %}
