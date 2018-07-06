@@ -1,7 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <h2>Maybe&hellip;?</h2>
-<p>TODO</p>
+<p>It is possible that you are on a date but we are not positive about it. Complicating factors include:</p>
+<ul>
+  <li>The location of your date</li>
+  <li>The quality (💲💲) of the date location</li>
+  <li>Being a college student and only being able to have simple dates due to time and money</li>
+  <li>Not having the person's explict word that is this indeed a date</li>
+</ul>
+<p>
+  Just because we cannot figure out if you're on a date doesn't mean you are not on a date. We all make mistakes at times.
+  If this really is a date, feel free to ignore us. Go ahead and enjoy your date. We won't bother you.
+</p>
 
 <div class="geo-msg">
-  <h3>By the way&hellip;</h3>
-  <p>TODO rewrite text If you think these results are in error or have any doubt about your date status, <a href="{{ url_for('date.index') }}">try again</a> for a potentially different result.</p>
+  <h2>Sooooooo&hellip;</h2>
+  <p>
+    Because we are not sure that you are on a date, you could <a href="{{ url_for('date.index') }}">try again</a> and perhaps we'll get it right this time.
+    If we're completely wrong and you actually are on a date, please accept our apology and a
+    <a target="_blank" rel="nofollow noopener noreferrer" href="https://le717.github.io/did-a-thing/?name=you">small token of our appreciation</a> for being on a date.
+  </p>
 </div>
+{% endblock %}
