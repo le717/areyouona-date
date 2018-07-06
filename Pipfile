@@ -6,9 +6,9 @@ name = "pypi"
 [packages]
 flask = "*"
 flask-jsglue = "*"
-requests = "*"
 flask-wtf = "*"
 python-dotenv = "*"
+requests = "*"
 
 [dev-packages]
 
