@@ -1,7 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <h2>Yes!</h2>
-<p>At least, it has been assessed that you are on a date. Your date status cannot be guaranteed except by you and the person you're with right now.</p>
+<p>At least, we think you are on a date. Your date status cannot be guaranteed except by you and the person you are with but we think we are right. Some congratulations are in order for going out to a nice place and not being a <a target="_blank" rel="nofollow noopener noreferrer" href="http://hanna-barbera.wikia.com/wiki/Cosmo_G._Spacely">penny-pinching cheapskate</a>. Enjoy the time together with your date. 🎊</p>
 
 <div class="geo-msg">
-  <h3>By the way&hellip;</h3>
-  <p>If you think these results are in error or have any doubt about your date status (although why would you if it's a date?), <a href="{{ url_for('date.index') }}">run the assessment again</a> and hope you're still on a date.</p>
+  <h2>It's not worth mentioning, but&hellip;</h2>
+  <p>If for some <em>weird</em> reason you have reason to believe that the assessment is in error regarding your date status or are in shock that you are actually on a really for real date, you can always <a href="{{ url_for('date.index') }}">run the assessment again</a> to confirm that you're still on a date. That being said, we don't know why you would do that. You are on a date. Just go with it and don't look a gifted horse in the mouth (whatever that saying means ¯\_(ツ)_/¯).</p>
 </div>
+{% endblock %}

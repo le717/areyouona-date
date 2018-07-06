@@ -1,12 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <h2>No.</h2>
 <p>How was this determined? Quite simply, really. Try asking yourself the following questions:</p>
 <ul>
-  <li>Did you previously arrange with the person for this to be a date?</li>
-  <li>Did you ask someone who is not sitting across from you if this is a date?</li>
+  <li>Did you fail to previously arrange with the person for this to be a date?</li>
+  <li>Did you ask someone who is not sitting at the table if this is a date?</li>
 </ul>
-<p>If you cannot answer these questions in an explict manner to indicate a date, then you are not on a date.</p>
+<p>If you can answer "yes" to any one of questions, then you are not on a date. Sorry to break your heart like that. 💔</p>
+
+
+<!-- TODO why are you at a really cheap place? -->
 
 <div class="geo-msg">
-  <h3>By the way&hellip;</h3>
-  <aside>You denied location access when visiting this site. That can provide an inaccurate assesment as well. If you would like a potentially more accurate assesment, <a href="{{ url_for('date.index') }}">re-run the assessment</a> and allow access to your location. Your location will be used solely to evaluate your date status and nothing more. Promise.</aside>
+  <h2>By the way&hellip;</h2>
+  <p>You denied location access when visiting this site. That can provide an inaccurate assesment as well. If you would like a potentially more accurate assesment, <a href="{{ url_for('date.index') }}">re-run the assessment</a> and allow access to your location. Your location will be used solely to evaluate your date status and nothing more. Promise.</p>
 </div>
+{% endblock %}
