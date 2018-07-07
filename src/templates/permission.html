@@ -8,5 +8,13 @@
 {% endblock %}
 
 {% block scripts %}
+<script>
+  "use strict";
+  // We don't support the geolocation api in this browser :(
+  if (!navigator.geolocation) {
+    window.location = Flask.url_for("date.no");
+  }
+</script>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,Element.prototype.matches"></script>
 <script src="{{ url_for('static', filename='js/script.js', time=cache_buster) }}"></script>
 {% endblock %}
