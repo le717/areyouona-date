@@ -9,6 +9,6 @@
 
 /* SITE */
     Last update: 2018/MM/DD
-    Standards: HTML5, CSS3, JavaScript
+    Standards: HTML5, CSS3, JavaScript, Geolocation API
     Components: Yelp API, Google Fonts, Python Flask microframework
     Software: Visual Studio Code
