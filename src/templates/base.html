@@ -29,5 +29,12 @@
 
   {{ JSGlue.include() }}
   {%- block scripts %}{% endblock %}
+  <script>
+    // Remove the no-geo class indicator to hide
+    // messages that denote such lack of geolocation support
+    if (navigator.geolocation) {
+      document.body.classList.remove("no-geo");
+    }
+  </script>
 </body>
 </html>
