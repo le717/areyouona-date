@@ -1,5 +1,6 @@
 import time
-from flask import Blueprint, render_template
+from flask import Blueprint, request
+from flask import render_template, url_for
 
 
 bp = Blueprint("date", __name__, url_prefix="")
@@ -8,6 +9,11 @@ bp = Blueprint("date", __name__, url_prefix="")
 @bp.app_context_processor
 def cache_buster():
     return {"cache_buster": time.time()}
+
+
+@bp.route("/form", methods=["POST"])
+def form() -> str:
+    return url_for("date.no")
 
 
 @bp.route("/")
