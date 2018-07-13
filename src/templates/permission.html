@@ -1,6 +1,12 @@
 {% extends 'base.html' %}
-{% block content %}
 
+{% block noscript %}
+<noscript>
+  <meta http-equiv="refresh" content="0; url={{ url_for('date.no') }}">
+</noscript>
+{% endblock %}
+
+{% block content %}
 <h2>Before we begin&hellip;</h2>
 <p>In order to assess if you are on a date or not, we would like to have access to your current location. This will allow us to accurately assess your date status. You might consider reading our <a href="{{ url_for('date.privacy') }}">privacy policy</a> before continuing on (tl;dr: we don't want your info).</p>
 
