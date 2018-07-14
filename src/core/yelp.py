@@ -1,3 +1,6 @@
+import os
+import json
+
 import requests
 
 
@@ -35,3 +38,16 @@ class Yelp:
         if r.status_code == requests.codes.ok:
             return r.json()
         return []
+
+    def make_cached_request(self, url_params: dict) -> list:
+        print("***** `make_cached_request` is only for development use! *****")
+
+        if os.path.isfile("data.json"):
+            with open("data.json", "rt") as f:
+                data = f.read()
+            return json.loads(data)
+
+        data = self.make_request(url_params)
+        with open("data.json", "wt") as f:
+            f.write(json.dumps(data))
+        return data
