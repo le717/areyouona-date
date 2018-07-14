@@ -14,7 +14,10 @@ class Yelp:
         self.__API_KEY = app.config.get("YELP_API_KEY")
 
         # The Yelp API key is missing
-        error_msg = "A Yelp API key is required. Get one at https://www.yelp.com/developers."
+        error_msg = (
+            "A Yelp API key is required. "
+            "Get one at https://www.yelp.com/developers."
+        )
         if self.__API_KEY is None:
             raise KeyError(error_msg)
 
