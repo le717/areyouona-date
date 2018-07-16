@@ -1,17 +1,11 @@
 __all__ = ["make"]
 
 
-def __reply_no() -> str:
-    return "no"
-
-
-def __reply_maybe() -> str:
-    return "maybe"
-
-
-def __reply_yes() -> str:
-    return "yes"
+# Possible assessment responses
+__RESPONSE_NO = "no"
+__RESPONSE_MAYBE = "maybe"
+__RESPONSE_YES = "yes"
 
 
 def make(user_details: dict) -> str:
-    return __reply_no()
+    return __RESPONSE_NO
