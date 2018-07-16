@@ -2,6 +2,8 @@ import time
 from flask import Blueprint, request
 from flask import render_template, url_for
 
+import src.core.assessment as assessment
+
 
 bp = Blueprint("date", __name__, url_prefix="")
 
@@ -13,7 +15,14 @@ def cache_buster():
 
 @bp.route("/form", methods=["POST"])
 def form() -> str:
-    return url_for("date.no")
+    # Make an assessment regarding the user's date status
+    result = assessment.make(request.json)
+    responses = {
+        "no": url_for("date.no"),
+        "yes": url_for("date.yes"),
+        "maybe": url_for("date.maybe"),
+    }
+    return responses[result]
 
 
 @bp.route("/")
