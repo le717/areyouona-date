@@ -12,6 +12,7 @@ requests = "*"
 
 [dev-packages]
 "flake8" = "*"
+rope = "*"
 
 [requires]
 python_version = "3.6"
