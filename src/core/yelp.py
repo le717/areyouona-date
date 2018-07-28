@@ -25,6 +25,8 @@ class Yelp:
             raise KeyError(error_msg)
 
     def make_request(self, url_params: dict) -> list:
+        # Authenticate with the API as documented when making a request
+        # https://www.yelp.com/developers/documentation/v3/authentication
         headers = {
             "Authorization": f"Bearer {self.__API_KEY}"
         }
@@ -42,12 +44,12 @@ class Yelp:
     def make_cached_request(self, url_params: dict) -> list:
         print("***** `make_cached_request` is only for development use! *****")
 
-        if os.path.isfile("data.json"):
+        if os.path.exists("data.json"):
             with open("data.json", "rt") as f:
                 data = f.read()
             return json.loads(data)
 
         data = self.make_request(url_params)
         with open("data.json", "wt") as f:
-            f.write(json.dumps(data))
+            f.write(json.dumps(data, indent=2))
         return data

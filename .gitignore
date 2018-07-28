@@ -3,5 +3,6 @@ __pycache__
 .geolocation/
 *.db
 *.ini
+*.json
 *.log
 .env
