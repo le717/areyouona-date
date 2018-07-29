@@ -8,6 +8,18 @@ __RESPONSE_YES = "yes"
 __ABSURD_ACCURACY_THRESHOLD = 1000
 
 
+def __get_price_rating(val: str) -> int:
+    """Get the Yelp Price rating for the business.
+
+    Yelp returns a string of dollar signs for the price tier
+    but we need it as a number value.
+
+    @param {String} val - The Yelp Price rating
+    @return {Integer} The price rating expressd as a number.
+    """
+    return len(val)
+
+
 def make(user_details: dict) -> str:
     # The Geolocation API did not respond with good data
     # (aka an absurd accuracy meter distance) so we can't use that data
