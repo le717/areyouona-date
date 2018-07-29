@@ -1,3 +1,8 @@
+import math
+
+from src.extensions import yelp
+
+
 __all__ = ["make"]
 
 
@@ -49,8 +54,9 @@ def make(user_details: dict) -> str:
         "radius": math.ceil(user_details["acc"]),
         "categories": "restaurants,hotdogs",
         "locale": "en_US",
-        "limit": 10,
+        "limit": 5,
         "sort_by": "rating",
+        # TODO Apparently there's an undocumented price value of "4"?!?
         "price": "1,2,3"
     }
 
