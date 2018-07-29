@@ -25,10 +25,10 @@ def __convert_price_rating(val: str) -> int:
     return len(val)
 
 
-def __get_closest_restaurant(yelp_response: dict) -> dict or None:
+def __get_closest_restaurant(yelp_response: dict) -> dict:
     # We didn't find any restaurants so we can't assess anything
     if yelp_response["total"] == 0:
-        return None
+        return {}
 
     # Find the restaurant closest to us
     closest_distance = min(r["distance"] for r in yelp_response["businesses"])
@@ -70,6 +70,6 @@ def make(user_details: dict) -> str:
     restaurant = __get_closest_restaurant(r)
 
     # ...Except Yelp couldn't find a restaurant we might be at
-    if restaurant is None:
+    if not restaurant:
         return __RESPONSE_NO
     return __RESPONSE_NO
