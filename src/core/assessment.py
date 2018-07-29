@@ -30,11 +30,15 @@ def __get_closest_restaurant(yelp_response: dict) -> dict:
     if yelp_response["total"] == 0:
         return {}
 
-    # Find the restaurant closest to us
+    # Only one restaurant was found, go ahead and return it
+    if yelp_response["total"] == 1:
+        return yelp_response["businesses"][0]
+
+    # Two or more restaurants were found, get the restaurant closest to us
     closest_distance = min(r["distance"] for r in yelp_response["businesses"])
 
-    # Now, using the distance of the closest restaurant,
-    # find the business info from the Yelp data
+    # Now, using our distance to the closest restaurant,
+    # extract the business info
     restaurant = None
     for r in yelp_response["businesses"]:
         if r["distance"] == closest_distance:
