@@ -20,9 +20,24 @@ def __get_price_rating(val: str) -> int:
     return len(val)
 
 
+def __get_closest_restaurant(yelp_response: dict) -> dict:
+    # Find the restaurant closest to us
+    restaurant = None
+    closest_distance = min(r["distance"] for r in yelp_response["businesses"])
+
+    # Now, using the distance of the closest restaurant,
+    # find the business info from the Yelp data
+    for r in yelp_response["businesses"]:
+        if r["distance"] == closest_distance:
+            restaurant = r
+            break
+    return restaurant
+
+
 def make(user_details: dict) -> str:
-    # The Geolocation API did not respond with good data
-    # (aka an absurd accuracy meter distance) so we can't use that data
+    # The Geolocation API responded with data that contained
+    # an absurd accuracy meter distance. Toss it out.
+    # It's too late for that white horse to come around
     # https://developer.mozilla.org/en-US/docs/Web/API/Coordinates)
     if user_details["acc"] >= __ABSURD_ACCURACY_THRESHOLD:
         return __RESPONSE_NO
@@ -38,4 +53,9 @@ def make(user_details: dict) -> str:
         "sort_by": "rating",
         "price": "1,2,3"
     }
+
+    # Get a response from the Yelp API
+    # and find the closest restaurant
+    r = yelp.make_cached_request(url_params)
+    restaurant = __get_closest_restaurant(r)
     return __RESPONSE_NO

@@ -12,6 +12,7 @@ class Yelp:
     def __init__(self):
         self.__API_KEY = None
         self.request_url = "https://api.yelp.com/v3/businesses/search"
+        # TODO Possibly keep track of request count
 
     def init_app(self, app):
         self.__API_KEY = app.config.get("YELP_API_KEY")
@@ -42,7 +43,7 @@ class Yelp:
         return []
 
     def make_cached_request(self, url_params: dict) -> list:
-        print("***** `make_cached_request` is only for development use! *****")
+        print("\n***** `make_cached_request` is only for development use! *****\n")
 
         if os.path.exists("data.json"):
             with open("data.json", "rt") as f:
