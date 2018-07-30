@@ -13,18 +13,6 @@ __RESPONSE_MAYBE = "maybe"
 __ABSURD_ACCURACY_THRESHOLD = 1000
 
 
-def __convert_price_rating(val: str) -> int:
-    """Get the Yelp Price rating for the business.
-
-    Yelp returns a string of dollar signs for the price tier
-    but we need it as a number value.
-
-    @param {String} val - The Yelp Price rating
-    @return {Integer} The price rating expressd as a number.
-    """
-    return len(val)
-
-
 def __get_closest_restaurant(yelp_response: dict) -> dict:
     # We didn't find any restaurants so we can't assess anything
     if yelp_response["total"] == 0:
@@ -53,12 +41,14 @@ def __compute_restaurant_score(restaurant: dict) -> float:
     # Index 0: Rating
     # Index 1: Review count
     # Index 2: Price
+    # For restaurant price sta, Yelp returns a string of dollar signs
+    # for the price tier we need it as a number value.
     # TODO Calculate actual weights
     weights = [1, 1, 1]
     stats = [
         restaurant["rating"],
         restaurant["review_count"],
-        __convert_price_rating(restaurant["price"])
+        len(restaurant["price"])
     ]
 
     # Compute the weighted average
