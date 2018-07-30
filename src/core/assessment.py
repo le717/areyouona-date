@@ -63,9 +63,8 @@ def __compute_restaurant_score(restaurant: dict) -> float:
 
     # Compute the weighted average
     # Taken from https://stackoverflow.com/a/29330897
-    # TODO Possibly round to 2 or 3 decimal places
     avg = sum(x * y for x, y in zip(stats, weights)) / sum(weights)
-    return avg
+    return round(avg, 2)
 
 
 def make(user_details: dict) -> str:
