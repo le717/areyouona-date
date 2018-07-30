@@ -14,7 +14,7 @@ body {
 
   background-color: #b62828;
 
-  font-family: "Montserrat", serif;
+  font-family: "IBM Plex Serif", serif;
   font-size: 18px;
   line-height: 2.0;
   font-weight: 400;
@@ -27,7 +27,7 @@ a {
 
   text-decoration: none;
   text-shadow: 0 0 2px rgba(0, 0, 0, 0.25);
-  font-family: "Lobster Two", "Montserrat", serif;
+  font-family: "Lobster Two", "IBM Plex Serif", serif;
   color: #fff;
   letter-spacing: 1px;
 }
@@ -37,7 +37,7 @@ a:hover {
 }
 
 h1, h2, h3 {
-  font-family: "Lobster Two", "Montserrat", serif;
+  font-family: "Lobster Two", "IBM Plex Serif", serif;
   font-weight: 700;
   margin-bottom: -0.75em;
   text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.25);
