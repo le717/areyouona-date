@@ -47,6 +47,27 @@ def __get_closest_restaurant(yelp_response: dict) -> dict:
     return restaurant
 
 
+def __compute_restaurant_score(restaurant: dict) -> float:
+    # Define the weights for each metric and restaurant stats
+    # The weight criteria, in order of index, are as follows:
+    # Index 0: Rating
+    # Index 1: Review count
+    # Index 2: Price
+    # TODO Calculate actual weights
+    weights = [1, 1, 1]
+    stats = [
+        restaurant["rating"],
+        restaurant["review_count"],
+        __convert_price_rating(restaurant["price"])
+    ]
+
+    # Compute the weighted average
+    # Taken from https://stackoverflow.com/a/29330897
+    # TODO Possibly round to 2 or 3 decimal places
+    avg = sum(x * y for x, y in zip(stats, weights)) / sum(weights)
+    return avg
+
+
 def make(user_details: dict) -> str:
     # The Geolocation API responded with data that contained
     # an absurd accuracy meter distance. Toss it out.
