@@ -24,8 +24,8 @@ class Yelp:
 
     def __set_request_limits(self, data: dict) -> dict:
         request_limits = {
-            "RateLimit-DailyLimit": data["RateLimit-DailyLimit"],
-            "RateLimit-Remaining": data["RateLimit-Remaining"],
+            "RateLimit-DailyLimit": int(data["RateLimit-DailyLimit"]),
+            "RateLimit-Remaining": int(data["RateLimit-Remaining"]),
             "RateLimit-ResetTime": data["RateLimit-ResetTime"],
         }
 
@@ -45,6 +45,12 @@ class Yelp:
             raise KeyError(error_msg)
 
     def make_request(self, url_params: dict) -> dict:
+        no_request_response = {"total": 0}
+
+        # We have hit our request limit, no dates for anyone
+        if self.__request_limits["RateLimit-Remaining"] == 0:
+            return no_request_response
+
         # Authenticate with the API as documented when making a request
         # https://www.yelp.com/developers/documentation/v3/authentication
         headers = {
@@ -60,7 +66,7 @@ class Yelp:
         # The request was successful
         if r.status_code == requests.codes.ok:
             return r.json()
-        return {"total": 0}
+        return no_request_response
 
     def make_cached_request(self, url_params: dict) -> list:
         print("**** `make_cached_request` is only for development use! ****")
