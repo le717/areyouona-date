@@ -12,6 +12,7 @@ const ONE_MINUTE = 1000 * 60;
  * denies access to their location or the api has an error.
  */
 function handleError() {
+  window.sessionStorage.setItem("location-denied", "true");
   window.location = Flask.url_for("date.no");
 }
 

@@ -13,7 +13,7 @@
   <!-- TODO Social media meta tags -->
 </head>
 
-<body class="no-geo">
+<body>
   <header>
     <img height="100" src="{{ url_for('static', filename='candle.png') }}" alt="">
     <h1>Are You On A Date?</h1>
@@ -31,10 +31,11 @@
   {{ JSGlue.include() }}
   {%- block scripts %}{% endblock %}
   <script>
-    // Remove the no-geo class indicator to hide
-    // messages that denote such lack of geolocation support
-    if (navigator.geolocation) {
-      document.body.classList.remove("no-geo");
+    // Add indicator class when lacking geolocation data
+    // in in order to display messages that say that
+    if (window.sessionStorage.getItem("location-denied")) {
+      document.body.classList.add("no-geo");
+      window.sessionStorage.removeItem("location-denied");
     }
   </script>
 </body>
