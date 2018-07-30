@@ -69,6 +69,7 @@ class Yelp:
         return no_request_response
 
     def make_cached_request(self, url_params: dict) -> list:
+        # TODO Delete method
         print("**** `make_cached_request` is only for development use! ****")
 
         if os.path.exists("data.json"):
