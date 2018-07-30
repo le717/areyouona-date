@@ -12,7 +12,8 @@ class Yelp:
     def __init__(self):
         self.__API_KEY = None
         self.request_url = "https://api.yelp.com/v3/businesses/search"
-        # TODO Possibly keep track of request count
+        # TODO Keep track of request count
+        # https://www.yelp.com/developers/documentation/v3/rate_limiting
 
     def init_app(self, app):
         self.__API_KEY = app.config.get("YELP_API_KEY")

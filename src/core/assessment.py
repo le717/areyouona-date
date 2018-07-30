@@ -8,8 +8,8 @@ __all__ = ["make"]
 
 # Common values used in making an assessment
 __RESPONSE_NO = "no"
-__RESPONSE_MAYBE = "maybe"
 __RESPONSE_YES = "yes"
+__RESPONSE_MAYBE = "maybe"
 __ABSURD_ACCURACY_THRESHOLD = 1000
 
 
@@ -64,8 +64,7 @@ def make(user_details: dict) -> str:
         "locale": "en_US",
         "limit": 5,
         "sort_by": "rating",
-        # TODO Apparently there's an undocumented price value of "4"?!?
-        "price": "1,2,3"
+        "price": "1,2,3,4"
     }
 
     # Get a response from the Yelp API
