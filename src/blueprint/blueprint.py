@@ -9,7 +9,7 @@ bp = Blueprint("date", __name__, url_prefix="")
 
 
 @bp.app_context_processor
-def cache_buster():
+def cache_buster() -> dict:
     return {"cache_buster": time.time()}
 
 

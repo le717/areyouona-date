@@ -10,7 +10,7 @@ __all__ = ["make"]
 __RESPONSE_NO = "no"
 __RESPONSE_YES = "yes"
 __RESPONSE_MAYBE = "maybe"
-__ABSURD_ACCURACY_THRESHOLD = 1000
+__ABSURD_ACCURACY_THRESHOLD = 300
 
 
 def __get_closest_restaurant(yelp_response: dict) -> dict:
@@ -97,8 +97,8 @@ def make(user_details: dict) -> str:
     url_params = {
         "latitude": user_details["lat"],
         "longitude": user_details["lng"],
-        "radius": math.ceil(user_details["acc"]),
-        "categories": "restaurants,hotdogs",
+        "radius": __ABSURD_ACCURACY_THRESHOLD,
+        "categories": "restaurants",
         "locale": "en_US",
         "limit": 5,
         "sort_by": "rating",
