@@ -13,12 +13,16 @@ class Yelp:
         self.__API_KEY = None
         self.__request_url = "https://api.yelp.com/v3/businesses/search"
         self.__request_file = ".data/yelp-requests.json"
-        self.__request_limits = {}
-        # TODO Keep track of request count
-        # https://www.yelp.com/developers/documentation/v3/rate_limiting
+        self.__request_limits = self.__get_request_limits()
 
+    def __get_request_limits(self) -> dict:
+        if not os.path.exists(self.__request_file):
+            return {}
 
-    def __set_request_limits(self, data):
+        with open(self.__request_file, "rt") as f:
+            return json.loads(f.read())
+
+    def __set_request_limits(self, data: dict) -> dict:
         request_limits = {
             "RateLimit-DailyLimit": data["RateLimit-DailyLimit"],
             "RateLimit-Remaining": data["RateLimit-Remaining"],
