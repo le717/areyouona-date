@@ -26,7 +26,7 @@ class Yelp:
         if self.__API_KEY is None:
             raise KeyError(error_msg)
 
-    def make_request(self, url_params: dict) -> list:
+    def make_request(self, url_params: dict) -> dict:
         # Authenticate with the API as documented when making a request
         # https://www.yelp.com/developers/documentation/v3/authentication
         headers = {
@@ -41,7 +41,7 @@ class Yelp:
         # The request was successful
         if r.status_code == requests.codes.ok:
             return r.json()
-        return []
+        return {"total": 0}
 
     def make_cached_request(self, url_params: dict) -> list:
         print("\n***** `make_cached_request` is only for development use! *****\n")
