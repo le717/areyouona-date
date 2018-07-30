@@ -79,10 +79,8 @@ footer {
   font-size: 0.9em;
   display: none;
 }
-
-.no-geo .geo-msg {
-  display: block;
-}
+.no-geo .geo-msg { display: block; }
+.extra-msg { font-size: 0.9em; }
 
 form {
   display: flex;
