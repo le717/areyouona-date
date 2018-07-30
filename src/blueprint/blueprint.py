@@ -15,6 +15,9 @@ def cache_buster() -> dict:
 
 @bp.route("/form", methods=["POST"])
 def form() -> str:
+    # Get the user's preferred locale, for use when interacting with Yelp
+    request.json["locale"] = request.accept_languages.best.replace("-", "_")
+
     # Make an assessment regarding the user's date status
     result = assessment.make(request.json)
     responses = {

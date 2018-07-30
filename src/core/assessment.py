@@ -99,7 +99,7 @@ def make(user_details: dict) -> str:
         "longitude": user_details["lng"],
         "radius": __ABSURD_ACCURACY_THRESHOLD,
         "categories": "restaurants",
-        "locale": "en_US",
+        "locale": user_details["locale"],
         "limit": 5,
         "sort_by": "rating",
         "price": "1,2,3,4"
