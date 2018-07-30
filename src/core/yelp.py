@@ -11,9 +11,23 @@ class Yelp:
 
     def __init__(self):
         self.__API_KEY = None
-        self.request_url = "https://api.yelp.com/v3/businesses/search"
+        self.__request_url = "https://api.yelp.com/v3/businesses/search"
+        self.__request_file = ".data/yelp-requests.json"
+        self.__request_limits = {}
         # TODO Keep track of request count
         # https://www.yelp.com/developers/documentation/v3/rate_limiting
+
+
+    def __set_request_limits(self, data):
+        request_limits = {
+            "RateLimit-DailyLimit": data["RateLimit-DailyLimit"],
+            "RateLimit-Remaining": data["RateLimit-Remaining"],
+            "RateLimit-ResetTime": data["RateLimit-ResetTime"],
+        }
+
+        self.__request_limits = request_limits
+        with open(self.__request_file, "wt") as f:
+            f.write(json.dumps(request_limits))
 
     def init_app(self, app):
         self.__API_KEY = app.config.get("YELP_API_KEY")
@@ -33,10 +47,11 @@ class Yelp:
             "Authorization": f"Bearer {self.__API_KEY}"
         }
         r = requests.get(
-            self.request_url,
+            self.__request_url,
             headers=headers,
             params=url_params
         )
+        self.__set_request_limits(r.headers)
 
         # The request was successful
         if r.status_code == requests.codes.ok:
@@ -44,7 +59,7 @@ class Yelp:
         return {"total": 0}
 
     def make_cached_request(self, url_params: dict) -> list:
-        print("\n***** `make_cached_request` is only for development use! *****\n")
+        print("**** `make_cached_request` is only for development use! ****")
 
         if os.path.exists("data.json"):
             print("Returning cached data")

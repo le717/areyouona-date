@@ -1,6 +1,7 @@
 __pycache__
-.vscode/
+.data/
 .geolocation/
+.vscode/
 *.db
 *.ini
 *.json
