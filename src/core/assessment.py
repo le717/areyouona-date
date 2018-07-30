@@ -35,6 +35,34 @@ def __get_closest_restaurant(yelp_response: dict) -> dict:
     return restaurant
 
 
+def __interpret_score(score: float, college_student: bool) -> str:
+    # Define the assesment result ranges
+    # TODO Calculate actual range values, gh-1
+    rating_scale = {
+        "normal": {
+            __RESPONSE_NO: [0, 30],
+            __RESPONSE_YES: [61, 10000],
+            __RESPONSE_MAYBE: [31, 60]
+        },
+        "college": {
+            __RESPONSE_NO: [0, 30],
+            __RESPONSE_YES: [61, 10000],
+            __RESPONSE_MAYBE: [31, 60]
+        }
+    }
+
+    # Use the appropriate rating scale depending on college student status
+    scale_to_use = rating_scale["normal"]
+    if college_student:
+        scale_to_use = rating_scale["college"]
+
+    # Determine in what range the score falls
+    # to assess if this is a date or not (or maybe)
+    for k, v in scale_to_use.items():
+        if score >= v[0] and score <= v[1]:
+            return k
+
+
 def __compute_restaurant_score(restaurant: dict) -> float:
     # Define the weights for each metric and restaurant stats
     # The weight criteria, in order of index, are as follows:
@@ -85,4 +113,7 @@ def make(user_details: dict) -> str:
     # ...Except Yelp couldn't find a restaurant we might be at
     if not restaurant:
         return __RESPONSE_NO
-    return __RESPONSE_NO
+
+    # Calculate the restaurant score and assess the date status
+    score = __compute_restaurant_score(restaurant)
+    return __interpret_score(score, user_details["col"])

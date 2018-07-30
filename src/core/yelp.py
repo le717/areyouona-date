@@ -47,6 +47,7 @@ class Yelp:
         print("\n***** `make_cached_request` is only for development use! *****\n")
 
         if os.path.exists("data.json"):
+            print("Returning cached data")
             with open("data.json", "rt") as f:
                 data = f.read()
             return json.loads(data)
