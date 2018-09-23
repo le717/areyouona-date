@@ -22,7 +22,7 @@ class Yelp:
         with open(self.__request_file, "rt") as f:
             return json.loads(f.read())
 
-    def __set_request_limits(self, data: dict) -> dict:
+    def __set_request_limits(self, data: dict):
         request_limits = {
             "RateLimit-DailyLimit": int(data["RateLimit-DailyLimit"]),
             "RateLimit-Remaining": int(data["RateLimit-Remaining"]),
