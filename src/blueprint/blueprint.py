@@ -51,3 +51,16 @@ def maybe() -> str:
 @bp.route("/yes")
 def yes() -> str:
     return render_template("yes.html", page_title="Yes!")
+
+
+@bp.app_errorhandler(404)
+def page_not_found(e) -> str:
+    return render_template("error.html", page_title="Status: Unavailable"), 404
+
+
+@bp.app_errorhandler(500)
+def internal_server_error(e) -> str:
+    return render_template(
+        "error.html",
+        page_title="Status: Incapable of love"
+    ), 500
