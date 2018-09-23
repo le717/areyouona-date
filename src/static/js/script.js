@@ -60,7 +60,7 @@ function handleFormSubmission(e) {
   // The user grants permission to their location
   } else {
     navigator.geolocation.getCurrentPosition(handleLocation, handleError, {
-      enableHighAccuracy: false,  // TODO gh-6 - Should this be true or false?
+      enableHighAccuracy: false,
       maximumAge: ONE_MINUTE * 2,
       timeout: ONE_MINUTE
     });
