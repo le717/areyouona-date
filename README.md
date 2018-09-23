@@ -4,6 +4,7 @@
 
 ## Installation
 
+1. Install Python 3.6+
 1. Rename `oss.env` to `.env`
 1. Add missing environment variables
 1. `pip install pipenv`
