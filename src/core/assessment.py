@@ -57,7 +57,6 @@ def __interpret_score(score: float, college_student: bool) -> str:
 
     # Determine in what range the score falls
     # to assess if this is a date or not (or maybe)
-    print(score)
     for k, v in scale_to_use.items():
         if score >= v[0] and score <= v[1]:
             return k
