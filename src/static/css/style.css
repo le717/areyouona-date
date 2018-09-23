@@ -52,6 +52,15 @@ header {
 
 header h1 { text-align: center; }
 
+/* Make the header text a link but not have the usual link styling */
+header a { background-color: transparent; }
+header a:hover,
+header a:focus,
+header a:active {
+  background-color: transparent;
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
+}
+
 header img {
   margin-right: 1em;
   margin-left: 1em;
