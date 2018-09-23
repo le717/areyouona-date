@@ -134,9 +134,8 @@ def make(user_details: dict) -> str:
         "price": "1,2,3,4"
     }
 
-    # Get a response from the Yelp API
-    # and find the closest restaurant
-    r = yelp.make_cached_request(url_params)
+    # Get a response from the Yelp API and find the closest restaurant
+    r = yelp.make_request(url_params)
     restaurant = __get_closest_restaurant(r)
 
     # ...Except Yelp couldn't find a restaurant we might be at
