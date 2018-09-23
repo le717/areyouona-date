@@ -8,7 +8,8 @@ __all__ = ["make"]
 __RESPONSE_NO = "no"
 __RESPONSE_YES = "yes"
 __RESPONSE_MAYBE = "maybe"
-__ABSURD_ACCURACY_THRESHOLD = 300
+__ABSURD_ACCURACY_THRESHOLD = 403
+__MAXIMUM_SEARCH_RADIUS = 1610
 
 
 def __get_closest_restaurant(yelp_response: dict) -> dict:
@@ -56,6 +57,7 @@ def __interpret_score(score: float, college_student: bool) -> str:
 
     # Determine in what range the score falls
     # to assess if this is a date or not (or maybe)
+    print(score)
     for k, v in scale_to_use.items():
         if score >= v[0] and score <= v[1]:
             return k
@@ -67,7 +69,7 @@ def __compute_restaurant_score(restaurant: dict) -> float:
     # Index 0: Rating
     # Index 1: Review count
     # Index 2: Price
-    # For restaurant price sta, Yelp returns a string of dollar signs
+    # For restaurant price stats, Yelp returns a string of dollar signs
     # for the price tier we need it as a number value.
     # TODO Calculate actual weights
     weights = [1, 1, 1]
@@ -95,7 +97,7 @@ def make(user_details: dict) -> str:
     url_params = {
         "latitude": user_details["lat"],
         "longitude": user_details["lng"],
-        "radius": __ABSURD_ACCURACY_THRESHOLD,
+        "radius": __MAXIMUM_SEARCH_RADIUS,
         "categories": "restaurants",
         "locale": user_details["locale"],
         "limit": 5,
