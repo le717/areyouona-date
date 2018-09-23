@@ -90,13 +90,13 @@ def __get_restaurant_criteria(rest: dict) -> list:
 def __compute_restaurant_score(rest: dict, all_rests: list) -> float:
     # In order to calculate an assessment, we must have a sample size
     # where n >= 2. We don't have that, so we can't determine what's up.
-    # We'll "determine" a z-score of 0 to indicate a rejections
+    # We'll "determine" a z-score of 0 to indicate our inability
     if len(all_rests) < 2:
-        return 0
+        return 0.0
 
     # Collect the restaurant stats for this restaurant and all
     # restaurants found in the area. This is performed by calculating a
-    # z-score for the restaurant we are currently at.
+    # z-score for the restaurant we are currently at
     rest_stats = __get_restaurant_criteria(rest)
 
     # Calculate the sample mean for all the restaurants
