@@ -6,7 +6,7 @@ __all__ = ["calculate_mean", "calculate_sd", "calculate_z"]
 
 def calculate_mean(vals: list) -> int:
     """Calculate a mean."""
-    return sum(vals) // len(vals)
+    return int(sum(vals) / len(vals))
 
 
 def calculate_sd(mean: int, vals: list) -> int:
