@@ -129,7 +129,7 @@ def make(user_details: dict) -> str:
         "radius": __MAXIMUM_SEARCH_RADIUS,
         "categories": "restaurants",
         "locale": user_details["locale"],
-        "limit": 5,
+        "limit": 10,
         "sort_by": "rating",
         "price": "1,2,3,4"
     }
