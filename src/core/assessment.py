@@ -65,6 +65,11 @@ def __interpret_score(score: float, college_student: bool) -> str:
     # the emperical rule as the rating scale
     score = abs(score)
 
+    # If the z-score is somehow greater than the upper bound yes response,
+    # then this is _obviously_ a date
+    if score >= scale_to_use[__RESPONSE_YES][1]:
+        return __RESPONSE_YES
+
     # Determine in what range the score falls
     # to assess if this is a date or not (or maybe)
     for k, v in scale_to_use.items():
