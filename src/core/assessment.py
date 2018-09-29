@@ -38,20 +38,21 @@ def __get_closest_restaurant(yelp_response: dict) -> dict:
 
 
 def __interpret_score(score: float, college_student: bool) -> str:
-    # Define the assesment result ranges,
-    # which are the upper-half values of the emperical rule
-    # except for the college ranges,
-    # which are the upper-half values further divided in half
+    # Define the assessment result ranges,
+    # which are based on the upper-half values
+    # of the normalized (mean: 0) emperical rule.
+    # The college range are the upper-half values
+    # of the emperical rule further divided in half
     rating_scale = {
         "normal": {
-            __RESPONSE_NO: [0, 0.99],
-            __RESPONSE_YES: [2, 3],
-            __RESPONSE_MAYBE: [1, 1.99]
+            __RESPONSE_NO: [0.0, 0.99],  # one point
+            __RESPONSE_YES: [1.51, 2.0],  # half point
+            __RESPONSE_MAYBE: [1.0, 1.5]  # half point
         },
         "college": {
-            __RESPONSE_NO: [0, 0.5],
-            __RESPONSE_YES: [1, 2],
-            __RESPONSE_MAYBE: [0.51, 0.99]
+            __RESPONSE_NO: [0.0, 0.5],  # half point
+            __RESPONSE_YES: [1.01, 2.0],  # one point
+            __RESPONSE_MAYBE: [0.51, 1.0]  # half point
         }
     }
 
@@ -60,9 +61,8 @@ def __interpret_score(score: float, college_student: bool) -> str:
     if college_student:
         scale_to_use = rating_scale["college"]
 
-    # Take the absolute value of the z-score so we can use the upper half
-    # of the bell curve. This makes it easier to use
-    # the emperical rule as the rating scale
+    # Take the absolute value of the z-score.
+    # This makes it easier to find its location in the the rating scale
     score = abs(score)
 
     # If the z-score is somehow greater than the upper bound yes response,
