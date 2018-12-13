@@ -14,8 +14,8 @@
 
 ## Building
 
-1. `docker build -f "Dockerfile" -t areyouonadate:latest
-1. `docker run -d --name areyouonadate -p 5000:5000 -t areyouonadate:latest
+1. `docker build -f "Dockerfile" -t areyouonadate:latest`
+1. `docker run -d --name areyouonadate -p 5000:5000 -t areyouonadate:latest`
 
 ## License
 
