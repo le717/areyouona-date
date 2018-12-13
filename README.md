@@ -2,7 +2,7 @@
 
 > Determine if you are currently on a date!
 
-## Installation
+## Install
 
 1. Install Python 3.6+
 1. Rename `oss.env` to `.env`
@@ -12,7 +12,7 @@
 1. `pipenv shell`
 1. `flask run`
 
-## Building
+## Build/Deploy
 
 1. `docker build -f "Dockerfile" -t areyouonadate:latest`
 1. `docker run -d --name areyouonadate -p 5000:5000 -t areyouonadate:latest`
