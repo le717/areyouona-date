@@ -9,6 +9,7 @@ flask-jsglue = "*"
 flask-wtf = "*"
 python-dotenv = "*"
 requests = "*"
+gunicorn = "*"
 
 [dev-packages]
 "flake8" = "*"
