@@ -8,3 +8,4 @@ Testing/
 *.json
 *.log
 .env
+requirements.txt

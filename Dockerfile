@@ -8,7 +8,7 @@ COPY . ./
 
 # Install all required modules
 RUN pip3 install --upgrade pip
-RUN python3 ./get_requirements3.py
+RUN python3 ./get_requirements.py
 RUN pip3 install --no-cache-dir -r requirements.txt
 RUN rm ./requirements.txt
 
