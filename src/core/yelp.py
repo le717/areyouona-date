@@ -67,18 +67,3 @@ class Yelp:
         if r.status_code == requests.codes.ok:
             return r.json()
         return no_request_response
-
-    def make_cached_request(self, url_params: dict) -> list:
-        # TODO Delete method
-        print("**** `make_cached_request` is only for development use! ****")
-
-        if os.path.exists("data.json"):
-            print("Returning cached data")
-            with open("data.json", "rt") as f:
-                data = f.read()
-            return json.loads(data)
-
-        data = self.make_request(url_params)
-        with open("data.json", "wt") as f:
-            f.write(json.dumps(data, indent=2))
-        return data
