@@ -11,7 +11,7 @@ WORKDIR /app
 RUN mkdir -p ./data
 
 # Install all required modules
-RUN apk update && apk install curl
+RUN apk update && apk add curl
 RUN curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3
 RUN poetry install
 
