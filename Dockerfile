@@ -1,7 +1,6 @@
 FROM python:alpine3.7
 
 # Set any env values we need
-EXPOSE 5000
 ENV PYTHONPATH=/app
 
 # Copy the app files into the container
@@ -13,7 +12,6 @@ RUN mkdir -p ./data
 # Install required deps
 RUN apk update && apk add curl
 RUN curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3
-RUN source $HOME/.poetry/env
 
 # Disable poetry's virtualenvs before installing the app
 RUN $HOME/.poetry/bin/poetry config settings.virtualenvs.create false
