@@ -11,10 +11,9 @@ WORKDIR /app
 RUN mkdir -p ./data
 
 # Install all required modules
-RUN pip3 install --upgrade pip
-RUN python3 ./get_requirements.py
-RUN pip3 install --no-cache-dir -r requirements.txt
-RUN rm ./requirements.txt
+RUN apk update && apk install curl
+RUN curl -sSL https://raw.githubusercontent.com/sdispater/poetry/master/get-poetry.py | python3
+RUN poetry install
 
 # Start the gunicorn service to run the app
 RUN chmod +x ./run-gunicorn.sh
