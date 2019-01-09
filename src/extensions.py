@@ -4,7 +4,7 @@ from flask_wtf.csrf import CSRFProtect
 
 from src.core.yelp import Yelp
 
-analytics = analytics()
+analytics = Analytics()
 csrf = CSRFProtect()
 jsglue = JSGlue()
 yelp = Yelp()

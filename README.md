@@ -4,12 +4,11 @@
 
 ## Install
 
-1. Install Python 3.6+
+1. Install Python 3.6+ and [Poetry](https://poetry.eustace.io/)
 1. Rename `oss.env` to `.env`
 1. Set missing environment variables
-1. `pip install pipenv`
-1. `pipenv install`
-1. `pipenv shell`
+1. `poetry install`
+1. `poetry shell`
 1. `flask run`
 
 ## Build/Deploy
