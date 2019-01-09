@@ -10,9 +10,12 @@ __all__ = ["Yelp"]
 class Yelp:
 
     def __init__(self):
+        self.__app = None
         self.__API_KEY = None
         self.__request_url = "https://api.yelp.com/v3/businesses/search"
-        self.__request_file = os.path.abspath("../../data/yelp-requests.json")
+        self.__request_file = os.path.abspath(
+            os.path.join("data", "yelp-requests.json")
+        )
         self.__request_limits = self.__get_request_limits()
 
     def __get_request_limits(self) -> dict:
@@ -34,7 +37,13 @@ class Yelp:
             f.write(json.dumps(request_limits))
 
     def init_app(self, app):
+        if self.__app is None:
+            self.__app = app
         self.__API_KEY = app.config.get("YELP_API_KEY")
+        self.__request_file = os.path.join(
+            self.__app.config["APP_ROOT"],
+            self.__request_file
+        )
 
         # The Yelp API key is missing
         error_msg = (
@@ -48,7 +57,7 @@ class Yelp:
         no_request_response = {"total": 0}
 
         # We have hit our request limit, no dates for anyone
-        if self.__request_limits.get("RateLimit-Remaining", 0) == 0:
+        if self.__request_limits.get("RateLimit-Remaining", 1) == 0:
             return no_request_response
 
         # Authenticate with the API as documented when making a request
