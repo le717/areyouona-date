@@ -19,7 +19,7 @@
 
 ## License
 
-2018 Caleb Ely
+2018-2019 Caleb Ely
 
 [MIT](LICENSE)
 
