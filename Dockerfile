@@ -8,7 +8,7 @@ ENV PYTHONPATH=/app
 RUN mkdir -p /app
 COPY . /app
 WORKDIR /app
-RUN mkdir -p ./.data
+RUN mkdir -p ./data
 
 # Install all required modules
 RUN pip3 install --upgrade pip

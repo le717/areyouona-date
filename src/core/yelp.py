@@ -12,7 +12,7 @@ class Yelp:
     def __init__(self):
         self.__API_KEY = None
         self.__request_url = "https://api.yelp.com/v3/businesses/search"
-        self.__request_file = os.path.abspath("../../.data/yelp-requests.json")
+        self.__request_file = os.path.abspath("../../data/yelp-requests.json")
         self.__request_limits = self.__get_request_limits()
 
     def __get_request_limits(self) -> dict:
@@ -48,7 +48,7 @@ class Yelp:
         no_request_response = {"total": 0}
 
         # We have hit our request limit, no dates for anyone
-        if self.__request_limits["RateLimit-Remaining"] == 0:
+        if self.__request_limits.get("RateLimit-Remaining", 0) == 0:
             return no_request_response
 
         # Authenticate with the API as documented when making a request
