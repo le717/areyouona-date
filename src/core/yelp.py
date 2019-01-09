@@ -12,7 +12,7 @@ class Yelp:
     def __init__(self):
         self.__API_KEY = None
         self.__request_url = "https://api.yelp.com/v3/businesses/search"
-        self.__request_file = ".data/yelp-requests.json"
+        self.__request_file = os.path.abspath("../../.data/yelp-requests.json")
         self.__request_limits = self.__get_request_limits()
 
     def __get_request_limits(self) -> dict:
