@@ -1,0 +1,24 @@
+[tool.poetry]
+name = "areyouona-date"
+version = "1.0.0"
+description = "Determine if you are currently on a date!"
+authors = ["Caleb Ely <le717@users.noreply.github.com>"]
+license = "MIT"
+
+[tool.poetry.dependencies]
+python = "^3.6"
+flask = "^1.0"
+flask-jsglue = "^0.3.1"
+python-dotenv = "^0.10.1"
+requests = "^2.21"
+gunicorn = "^19.9"
+flask-analytics = "^0.6.0"
+flask-wtf = "^0.14.2"
+
+[tool.poetry.dev-dependencies]
+flake8 = "^3.6"
+rope = "^0.11.0"
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
