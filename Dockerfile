@@ -7,14 +7,14 @@ ENV PYTHONPATH=/app
 RUN mkdir -p /app
 COPY . /app
 WORKDIR /app
-RUN mkdir -p ./data
 
 # Install required deps
-RUN pip3 install --no-cache-dir toml
-RUN python3 ./get_requirements.py
-RUN pip3 install --no-cache-dir -r requirements.txt
-RUN rm ./requirements.txt
+RUN pip3 install --no-cache-dir toml && \
+    python3 ./get_requirements.py && \
+    pip3 install --no-cache-dir -r requirements.txt && \
+    rm ./requirements.txt && \
+    chmod +x ./run-app.sh && \
+    mkdir -p ./data
 
 # Start the gunicorn service to run the app
-RUN chmod +x ./run-gunicorn.sh
-ENTRYPOINT ["sh", "./run-gunicorn.sh" ]
+ENTRYPOINT ["sh", "./run-app.sh" ]
