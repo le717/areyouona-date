@@ -52,17 +52,6 @@ itsdangerous = ">=0.24"
 
 [[package]]
 category = "main"
-description = "Analytics snippets generator extension for the Flask framework"
-name = "flask-analytics"
-optional = false
-python-versions = "*"
-version = "0.6.0"
-
-[package.dependencies]
-Flask = "*"
-
-[[package]]
-category = "main"
 description = "Flask-JSGlue helps hook up your Flask application nicely with the front end."
 name = "flask-jsglue"
 optional = false
@@ -206,7 +195,7 @@ python-versions = "*"
 version = "2.2.1"
 
 [metadata]
-content-hash = "ec49a7b5a79f2fab762510b08a2cf6235af70ede8496aadae036d73f14b31431"
+content-hash = "c2f4d5b763d2094424fd6ec2dca13a33018197c0462e814df8f70d124aa41f46"
 python-versions = "^3.6"
 
 [metadata.hashes]
@@ -215,7 +204,6 @@ chardet = ["84ab92ed1c4d4f16916e05906b6b75a6c0fb5db821cc65e70cbd64a3e2a5eaae", "
 click = ["2335065e6395b9e67ca716de5f7526736bfa6ceead690adf616d925bdc622b13", "5b94b49521f6456670fdb30cd82a4eca9412788a93fa6dd6df72c94d5a8ff2d7"]
 flake8 = ["6a35f5b8761f45c5513e3405f110a86bea57982c3b75b766ce7b65217abe1670", "c01f8a3963b3571a8e6bd7a4063359aff90749e160778e03817cd9b71c9e07d2"]
 flask = ["2271c0070dbcb5275fad4a82e29f23ab92682dc45f9dfbc22c02ba9b9322ce48", "a080b744b7e345ccfcbc77954861cb05b3c63786e93f2b3875e0913d44b43f05"]
-flask-analytics = ["42d4be45f7813dd22db419e91a3f052770e9c101285cbea537ac0e4fff614b0c", "db5c409d492f3e7a7778dbcdebe2accf9bf775e674fccc343928c279bbe9a5dd"]
 flask-jsglue = ["915e010ee228c711d56530bb5fbbefd1ca8bbd7e0fabfed49c85301288b45df9"]
 flask-wtf = ["5d14d55cfd35f613d99ee7cba0fc3fbbe63ba02f544d349158c14ca15561cc36", "d9a9e366b32dcbb98ef17228e76be15702cd2600675668bca23f63a7947fd5ac"]
 gunicorn = ["aa8e0b40b4157b36a5df5e599f45c9c76d6af43845ba3b3b0efe2c70473c2471", "fa2662097c66f920f53f70621c6c58ca4a3c4d3434205e608e121b5b3b71f4f3"]

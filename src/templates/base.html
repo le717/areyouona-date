@@ -27,7 +27,7 @@
   </footer>
 
   {{ JSGlue.include() }}
-  {{ analytics }}
+  {% include "analytics.html" %}
   {%- block scripts %}{% endblock %}
   <script>
     // Add indicator class when lacking geolocation data

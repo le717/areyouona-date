@@ -12,7 +12,6 @@ flask-jsglue = "^0.3.1"
 python-dotenv = "^0.10.1"
 requests = "^2.21"
 gunicorn = "^19.9"
-flask-analytics = "^0.6.0"
 flask-wtf = "^0.14.2"
 
 [tool.poetry.dev-dependencies]
