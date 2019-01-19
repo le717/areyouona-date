@@ -14,13 +14,6 @@ def create_app():
     for key, value in env_vals.items():
         app.config[key] = (value if value != "" else None)
 
-    # Only enable analytics if in production
-    app.config["ANALYTICS"] = {}
-    app.config["ANALYTICS"]["GOOGLE_UNIVERSAL_ANALYTICS"] = {
-        "ACCOUNT": app.config.get("GOOGLE_ANALYTICS_KEY", None),
-        "ENABLED": True  # (True if app.config["ENV"] == "production" else False)
-    }
-
     # Load any extensions and register the blueprint
     init_extensions(app)
     app.register_blueprint(blueprint.bp)
