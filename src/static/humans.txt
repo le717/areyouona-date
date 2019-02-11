@@ -8,7 +8,7 @@
     Candle image: http://www.clker.com/clipart-10651.html
 
 /* SITE */
-    Last update: 2018/MM/DD
+    Last update: 2019-02-10
     Standards: HTML5, CSS3, JavaScript, Geolocation API
     Components: Yelp API, Google Fonts, Python Flask microframework
     Software: Visual Studio Code
