@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "areyouona-date"
-version = "1.0.0"
+version = "1.0.2"
 description = "Determine if you are currently on a date!"
 authors = ["Caleb Ely <le717@users.noreply.github.com>"]
 license = "MIT"

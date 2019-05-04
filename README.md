@@ -1,10 +1,10 @@
-# Are You On A Date?
+# Are you on a Date?
 
 > Determine if you are currently on a date!
 
 ## Install
 
-1. Install Python 3.6+ and [Poetry](https://poetry.eustace.io/)
+1. Install Python 3.7+ and [Poetry](https://poetry.eustace.io/)
 1. Rename `oss.env` to `.env`
 1. Set missing environment variables
 1. `poetry install`
