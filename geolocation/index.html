@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Geolocation Data Collection</title>
+
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Zilla+Slab:400|Zilla+Slab+Highlight:700">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #fff;
+      font-family: "Zilla Slab", sans-serif;
+      font-weight: 400;
+      font-size: 19px;
+      line-height: 1.6;
+      color: #353434;
+      text-align: center;
+    }
+
+    h1 {
+      font-family: "Zilla Slab Highlight", "Zilla Slab", sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Are You on a Date &mdash; Geolocation Data Collection</h1>
+  <p>When prompted, please allow access to your location. It may take a few moments to locate you.
+    <br>Make sure you have location services enabled on your phone!
+    <br>Thanks! 😃</p>
+
+  <p class="result"></p>
+
+  <script>
+    "use strict";
+    const qResult = document.querySelector(".result");
+
+    function displayLocationInfo(position) {
+      const lng = position.coords.longitude;
+      const lat = position.coords.latitude;
+
+      fetch("geo.php", {
+        method: "POST",
+        body: JSON.stringify({
+          lng,
+          lat,
+          acc: position.coords.accuracy,
+          time: position.timestamp
+        })
+      })
+      .then(r => r.text())
+      .then((r) => {
+        qResult.innerHTML = `You are located at<br>${lat}, ${lng}<br>
+        (accurate within ${position.coords.accuracy} meters)`;
+      })
+    }
+
+    function handleLocationError(error) {
+      switch (error.code) {
+        case error.TIMEOUT:
+          // ...deal with timeout
+          qResult.innerHTML = "For some reason, it took too long to get your location. ❓";
+          qResult.innerHTML += '<br>Please <a href="./">reload the page</a> and try again.';
+          break;
+        case error.POSITION_UNAVAILABLE:
+          // ...device can't get data
+          qResult.innerHTML = "For some reason, your location couldn't be loaded. 😖";
+          qResult.innerHTML += '<br>Please <a href="./">reload the page</a> and try again.';
+          break;
+        case error.PERMISSION_DENIED:
+          // ...user said no
+          qResult.innerHTML = "You denied access to your location. 😦";
+          qResult.innerHTML += '<br>Please <a href="./">reload the page</a> and give permission.';
+          break;
+      }
+    }
+
+    // We don't support the geolocation api :(
+    if (!navigator.geolocation) {
+      qResult.innerHTML = "Your phone's web browser does not support geolocation. 😢"
+
+    // Get the user's location
+    } else {
+      qResult.innerHTML = "Getting location...";
+      navigator.geolocation.getCurrentPosition(displayLocationInfo, handleLocationError, {
+        enableHighAccuracy: true,
+        maximumAge: 1000 * 60 * 5, // 5 minutes
+        timeout: 1000 * 60 * 5 // 5 minutes
+      }) ;
+    }
+  </script>
+</body>
+</html>
