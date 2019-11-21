@@ -6,7 +6,7 @@ authors = ["Caleb Ely <le717@users.noreply.github.com>"]
 license = "MIT"
 
 [tool.poetry.dependencies]
-python = "^3.6"
+python = "^3.8"
 flask = "^1.0"
 flask-jsglue = "^0.3.1"
 python-dotenv = "^0.10.1"
